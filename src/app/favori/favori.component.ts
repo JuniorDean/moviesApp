@@ -13,7 +13,7 @@ import { Films } from '../Films';
 export class FavoriComponent implements OnInit {
 
   filmsf:any;
-
+  detailFilmSelcted:any =  {};
   constructor(private route: ActivatedRoute, private router: Router, private _data:DataService) { }
 
   ngOnInit() {
@@ -26,6 +26,14 @@ export class FavoriComponent implements OnInit {
      this.filmsf.splice(i, 1);
      this._data.changeFavoriteFilm(this.filmsf);
    }
+
+   displayInfoFilm(film:Films){
+    this._data.getFilmInfos(film.title,filmF=>{
+      this.detailFilmSelcted = filmF ;
+    });
+   
+   }
+   
 
   
 

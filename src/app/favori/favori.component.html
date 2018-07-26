@@ -20,17 +20,18 @@
       <div class="row">
           <div class="col-sm-6">
             <div class="list-group-item" *ngFor="let film of filmsf ; let i = index">
-                <div class="row">
+                <div class="row" (click)="displayInfoFilm(film)">
                   <div class="col-sm-9">
                        <h3>{{film.title}}</h3>
                   </div>
-                  <div class="col-sm-1">
-                      <i class="fas fa-heart" style="color:yellow; margin-left: 49px;" (click)="displayInfoFilm(i)"></i>
+                  <div class="col-sm-1" >
+                      <i class="fas fa-heart" style="color:yellow; margin-left: 49px;" ></i>
                   </div>
                   <div class="col-sm-1">
                         <i class="far fa-trash-alt" (click)="removeFavoriteFilm(i)" style="margin-left: 49px"></i>
                     </div>
                 </div>
+                <div >{{detailFilmSelcted.title}} {{detailFilmSelcted.Actors}}</div>
               </div>
           </div>
       </div>

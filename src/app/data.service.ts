@@ -30,14 +30,14 @@ export class DataService {
     addFavFilm(film: Films){
     
        this.favmovies.push(film);
-       let f:any;
-       f =  this.http.get<any>(this.apiFilmUrl + film.title).subscribe(res => {
-         f = res;
-       console.log(f);
-      });
-       
     }
-
+    getFilmInfos(title : string,callback:Function): any{
+      let filmInfos: any;
+      this.http.get<any>(this.apiFilmUrl + title).subscribe(res => {
+        callback(res);
+     });
+    }
+    
    changeFavoriteFilm(movieFavorite){
      this.movieFavorite.next(movieFavorite);
    }
